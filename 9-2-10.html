@@ -1,0 +1,47 @@
+<script>
+  class Square {
+    #length;
+
+    constructor(length) {
+      // this.length에 값을 할당하면, 자동으로 set length(value)가 호출됩니다.
+      this.length = length;
+    }
+    
+    // 'get' 키워드는 속성을 읽을 때 실행되는 함수를 정의합니다.
+    get length() {
+      return this.#length;
+    }
+    
+    get perimeter() {
+      return this.#length * 4;
+    }
+    
+    get area() {
+      return this.#length * this.#length;
+    }
+    
+    // 'set' 키워드는 속성에 값을 할당할 때 실행되는 함수를 정의합니다.
+    set length(value) {
+      if (value <= 0) {
+        throw '길이는 0보다 커야 합니다.';
+      }
+      this.#length = value;
+    }
+  }
+  
+  // --- 클래스 사용하기 ---
+  
+  // 1. 정상 실행
+  const squareA = new Square(10);
+  // 메소드지만 속성처럼 () 없이 접근합니다.
+  console.log(`한 변의 길이는: ${squareA.length}`);
+  console.log(`둘레: ${squareA.perimeter}`);
+  console.log(`넓이: ${squareA.area}`);
+  
+  // 2. 예외 발생
+  try {
+    const squareB = new Square(-10);
+  } catch (e) {
+    console.error(e);
+  }
+</script>

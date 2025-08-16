@@ -1,0 +1,41 @@
+<script>
+  class Square {
+    #length;
+
+    constructor(length) {
+      // constructor에서도 setter 메소드를 사용해 유효성 검사를 거치도록 합니다.
+      this.setLength(length);
+    }
+
+    // 세터(Setter) 메소드: private 속성의 값을 '설정'합니다.
+    setLength(value) {
+      // 값을 설정하기 전에 유효성을 검사하는 '게이트키퍼' 역할을 합니다.
+      if (value <= 0) {
+        throw '길이는 0보다 커야 합니다.';
+      }
+      this.#length = value;
+    }
+
+    // 게터(Getter) 메소드: private 속성의 값을 '읽어'옵니다.
+    getLength() {
+      return this.#length;
+    }
+
+    // 나머지 메소드들은 private 속성을 사용합니다.
+    getPerimeter() { return 4 * this.#length; }
+    getArea() { return this.#length * this.#length; }
+  }
+
+  // --- 클래스 사용하기 ---
+
+  // 1. 정상적인 객체 생성
+  const square = new Square(10);
+  console.log(`한 변의 길이는 ${square.getLength()}입니다.`);
+
+  // 2. 예외 발생시키기 (setter를 통해 잘못된 값 입력을 시도)
+  try {
+    square.setLength(-10);
+  } catch (e) {
+    console.error(e); // 에러를 잡아서 출력합니다.
+  }
+</script>

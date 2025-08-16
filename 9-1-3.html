@@ -1,0 +1,35 @@
+<script>
+  // 객체를 선언합니다.
+  const students = [
+    { 이름: '구름', 국어: 87, 영어: 98, 수학: 88, 과학: 90 },
+    { 이름: '별이', 국어: 92, 영어: 98, 수학: 96, 과학: 88 },
+    { 이름: '겨울', 국어: 76, 영어: 96, 수학: 94, 과학: 86 },
+    { 이름: '바다', 국어: 98, 영어: 52, 수학: 98, 과학: 92 }
+  ];
+
+  // 총점을 구하는 함수
+  function getSumOf(student) {
+    return student.국어 + student.영어 + student.수학 + student.과학;
+  }
+
+  // 평균을 구하는 함수
+  function getAverageOf(student) {
+    return getSumOf(student) / 4;
+  }
+
+  // ----------------------------------------------------
+  // ▼▼▼  출력할 데이터를 표(table) 형태로 가공  ▼▼▼
+  // ----------------------------------------------------
+  const results = [];
+  for (const s of students) {
+    results.push({
+      '이름': s.이름,
+      '총점': `${getSumOf(s)}점`,
+      // toFixed(2)를 사용해 모든 평균을 소수점 둘째 자리까지 표시합니다.
+      '평균': `${getAverageOf(s).toFixed(2)}점` 
+    });
+  }
+  
+  // console.table()을 사용해 데이터를 깔끔한 표로 출력합니다.
+  console.table(results);
+</script>

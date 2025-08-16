@@ -1,0 +1,26 @@
+<script>
+  class Rectangle {
+    // 생성자: 사각형의 가로(width)와 세로(height)를 초기 속성으로 설정
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+
+    // 사각형의 둘레를 구하는 메소드
+    getPerimeter() {
+      return 2 * (this.width + this.height);
+    }
+
+    // 사각형의 넓이를 구하는 메소드
+    getArea() {
+      return this.width * this.height;
+    }
+  }
+
+  // 클래스를 사용해 가로 10, 세로 20인 사각형 객체 생성
+  const rectangle = new Rectangle(10, 20);
+
+  // 메소드 호출 및 결과 출력
+  console.log(`사각형의 둘레: ${rectangle.getPerimeter()}`);
+  console.log(`사각형의 넓이: ${rectangle.getArea()}`);
+</script>

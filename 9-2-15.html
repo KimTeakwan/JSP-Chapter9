@@ -1,0 +1,19 @@
+<script>
+  class Pet {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    // 부모로부터 물려받은 toString() 메소드를 자신에게 맞게 재정의(Override)합니다.
+    toString() {
+      return `이름: ${this.name}\n나이: ${this.age}살`;
+    }
+  }
+
+  const pet = new Pet('구름', 6);
+
+  // alert()나 문자열과 더할 때, 객체의 toString() 메소드가 자동으로 호출됩니다.
+  alert(pet);
+  console.log(pet + "");
+</script>

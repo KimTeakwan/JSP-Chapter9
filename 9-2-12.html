@@ -1,0 +1,18 @@
+<script>
+  // 클래스를 선언합니다.
+  class LifeCycle {
+    // call 메소드는 a, b, c 메소드를 순서대로 호출하는 역할을 합니다.
+    call() {
+      this.a();
+      this.b();
+      this.c();
+    }
+
+    a() { console.log('a() 메소드를 호출합니다.'); }
+    b() { console.log('b() 메소드를 호출합니다.'); }
+    c() { console.log('c() 메소드를 호출합니다.'); }
+  }
+
+  // 인스턴스를 생성하고, 생성된 인스턴스의 call() 메소드를 바로 호출합니다.
+  new LifeCycle().call();
+</script>
